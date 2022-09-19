@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-declare_args() {
-  # Root directory for Allwinner D1 toolchain.
-  allwinner_d1_build_root = "//third_party/allwinner/d1"
+import("riscv_toolchain.gni")
+
+riscv_toolchain("riscv_gcc") {
+  toolchain_args = {
+  }
 }

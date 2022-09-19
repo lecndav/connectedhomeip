@@ -74,6 +74,16 @@ void Device::SetName(const char * szName)
     }
 }
 
+void Device::SetCasambiId(uint8_t id)
+{
+    mCasambiId = id;
+}
+
+void Device::SetCasambiGroupId(uint8_t id)
+{
+    mCasambiGroupId = id;
+}
+
 void Device::SetLocation(std::string szLocation)
 {
     bool changed = (mLocation.compare(szLocation) != 0);
@@ -92,6 +102,7 @@ DeviceOnOff::DeviceOnOff(const char * szDeviceName, std::string szLocation) : De
 {
     mOn = false;
 }
+
 
 bool DeviceOnOff::IsOn()
 {

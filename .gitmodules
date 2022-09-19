@@ -288,3 +288,7 @@
 	url = https://github.com/matter-mtk/genio-matter-lwip.git
 	branch = main
 	platforms = genio
+[submodule "third_party/allwinner/d1/repo/Linux"]
+        path = third_party/allwinner/d1/repo/Linux
+	url = https://github.com/lecndav/allwinner-d1-riscv.git
+	platforms = allwinner_d1

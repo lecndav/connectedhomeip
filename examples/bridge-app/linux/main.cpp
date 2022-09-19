@@ -834,9 +834,7 @@ bool kbhit()
     return byteswaiting > 0;
 }
 
-const int16_t oneDegree = 100;
-
-void * bridge_polling_thread(void * context)
+void removeDynamicLight(int id)
 {
     bool light1_added = true;
     bool light2_added = false;

@@ -26,12 +26,6 @@
 #include <functional>
 #include <vector>
 
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <sys/un.h>
-
-#include <json/json.h>
-
 class Device
 {
 public:
@@ -50,18 +44,13 @@ public:
 
     bool IsReachable();
     void SetReachable(bool aReachable);
-    void SetCasambiId(uint8_t id);
-    void SetCasambiGroupId(uint8_t id);
     void SetName(const char * szDeviceName);
     void SetLocation(std::string szLocation);
-    void sendCsmbOnOff(uint8_t id, bool onOff);
     inline void SetEndpointId(chip::EndpointId id) { mEndpointId = id; };
     inline chip::EndpointId GetEndpointId() { return mEndpointId; };
     inline void SetParentEndpointId(chip::EndpointId id) { mParentEndpointId = id; };
     inline chip::EndpointId GetParentEndpointId() { return mParentEndpointId; };
     inline char * GetName() { return mName; };
-    inline uint8_t GetCasambiId() { return mCasambiId; };
-    inline uint8_t GetCasambiGroupId() { return mCasambiGroupId; };
     inline std::string GetLocation() { return mLocation; };
     inline std::string GetZone() { return mZone; };
     inline void SetZone(std::string zone) { mZone = zone; };
@@ -70,8 +59,6 @@ private:
     virtual void HandleDeviceChange(Device * device, Device::Changed_t changeMask) = 0;
 
 protected:
-    uint8_t mCasambiId;
-    uint8_t mCasambiGroupId;
     bool mReachable;
     char mName[kDeviceNameSize];
     std::string mLocation;

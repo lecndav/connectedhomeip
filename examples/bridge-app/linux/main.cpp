@@ -550,7 +550,7 @@ void ApplicationInit() {}
 const EmberAfDeviceType gBridgedOnOffDeviceTypes[] = { { DEVICE_TYPE_LO_ON_OFF_LIGHT, DEVICE_VERSION_DEFAULT },
                                                        { DEVICE_TYPE_BRIDGED_NODE, DEVICE_VERSION_DEFAULT } };
 
-void addDynamicLight(int id, std::string name, int groupId, std::string groupName, bool online)
+void addDynamicLight(uint8_t id, std::string name, uint8_t groupId, std::string groupName, bool online)
 {
     ChipLogProgress(DeviceLayer, "Add light %s with id %d", name.c_str(), id);
     DeviceOnOff *Light = new DeviceOnOff(name.c_str(), groupName);
@@ -606,7 +606,7 @@ void * commission_devices_thread(void * context)
             switch (op)
             {
             case 0:
-                addDynamicLight(json["id"].asInt(), json["name"].asString(), json["groupId"].asInt(),
+                addDynamicLight((uint8_t)json["id"].asInt(), json["name"].asString(), (uint8_t)json["groupId"].asInt(),
                                 json["groupName"].asString(), json["online"].asBool());
                 break;
             case 1:

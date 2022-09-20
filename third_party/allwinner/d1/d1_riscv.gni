@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Project CHIP Authors
+# Copyright (c) 2020 Project CHIP Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-declare_args() {
-  # Root directory for Allwinner D1 toolchain.
-  d1_build_root = "//third_party/allwinner/d1"
+import("d1_board.gni")
 
-  # Root directory of toolchain of D1 chips
-  d1_toolchain = "//third_party/allwinner/d1/repo"
-}
+riscv_arch = "rv32imfc"
+riscv_abi = "ilp32f"
+#  riscv_cpu = ""
+#  riscv_float_abi = "hard"
+#  riscv_fpu = ""

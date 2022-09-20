@@ -12,9 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("riscv_toolchain.gni")
-
-riscv_toolchain("riscv_gcc") {
-  toolchain_args = {
-  }
+declare_args() {
+  d1_board = "D1"
 }
+
+if (d1_board == "") {
+  d1_board = "D1"
+}
+
+assert(d1_board != "", "d1_board must be specified")
+
+board_defines = []
